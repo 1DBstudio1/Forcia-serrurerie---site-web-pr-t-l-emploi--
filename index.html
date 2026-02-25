@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forcia Serrurerie | Serrurier à Gap 24h/24</title>
+  <meta name="description" content="Forcia Serrurerie — Serrurier professionnel à Gap. Intervention rapide 24h/24, 7j/7. Ouverture de porte, blindage, dépannage urgent.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --yellow: #f5c518;
+      --yellow-dark: #d4a800;
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #1a1a1a;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0f0;
+      --text-muted: #888;
+      --red: #e63946;
+      --radius: 8px;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.2s; }
+    li { list-style: none; }
+
+    /* ===== BARRE URGENCE ===== */
+    .urgence-bar {
+      background: var(--red);
+      padding: 8px 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 200;
+    }
+
+    .urgence-bar a {
+      color: white;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .urgence-bar i { animation: pulse 1.5s ease-in-out infinite; }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 38px; height: 38px;
+      background: var(--yellow);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0a0a;
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .logo-text span { color: var(--yellow); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--yellow);
+      color: #0a0a0a !important;
+      border-radius: var(--radius);
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245,197,24,0.35) !important;
+      color: #0a0a0a !important;
+    }
+
+    .burger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .burger-menu {
+      display: none;
+      position: fixed;
+      top: 96px; left: 0;
+      width: 100%;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      padding: 1rem 0;
+    }
+
+    .burger-menu.open { display: block; }
+    .burger-menu li a {
+      display: block;
+      padding: 0.8rem 2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== HERO ===== */
+    #accueil {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(245,197,24,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(230,57,70,0.06) 0%, transparent 50%),
+        url('https://images.pexels.com/photos/4792733/pexels-photo-4792733.jpeg') center/cover no-repeat;
+      filter: brightness(0.25) saturate(0.5);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(10,10,10,0.95) 40%, transparent 100%);
+    }
+
+    /* Grid texture overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,197,24,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,197,24,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 4rem 3rem;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(245,197,24,0.4);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 span { color: var(--yellow); }
+
+    .hero-content p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      background: var(--yellow);
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(245,197,24,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(245,197,24,0.45);
+      color: #0a0a0a;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-feature i { color: var(--yellow); font-size: 0.9rem; }
+
+    /* Floating phone card */
+    .hero-phone {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      min-width: 200px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    }
+
+    .phone-ring {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: rgba(245,197,24,0.1);
+      border: 2px solid var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--yellow);
+      margin: 0 auto 1rem;
+      animation: ring 2s ease-in-out infinite;
+    }
+
+    @keyframes ring {
+      0%,100% { box-shadow: 0 0 0 0 rgba(245,197,24,0.4); }
+      50% { box-shadow: 0 0 0 15px rgba(245,197,24,0); }
+    }
+
+    .hero-phone p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-phone .phone-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-phone .avail {
+      font-size: 0.72rem;
+      color: #4caf50;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .hero-phone .avail::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4caf50;
+      animation: blink 1s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ===== STATS ===== */
+    .stats-bar {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 3rem;
+      position: relative;
+    }
+
+    .stat-item::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .stat-item:last-child::after { display: none; }
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 30px; height: 2px;
+      background: var(--yellow);
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      line-height: 1.05;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .section-title span { color: var(--yellow); }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      max-width: 500px;
+      margin-bottom: 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--bg2);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--yellow);
+      transition: height 0.3s;
+    }
+
+    .service-card:hover { background: var(--bg3); }
+    .service-card:hover::before { height: 100%; }
+
+    .service-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(245,197,24,0.08);
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+
+    .service-card:hover .service-num { color: rgba(245,197,24,0.15); }
+
+    .service-icon {
+      width: 50px; height: 50px;
+      background: rgba(245,197,24,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow);
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      transition: background 0.3s;
+    }
+
+    .service-card:hover .service-icon { background: rgba(245,197,24,0.2); }
+
+    .service-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      color: white;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .service-urgence {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== URGENCE SECTION ===== */
+    .urgence-section {
+      background: var(--red);
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .urgence-section::before {
+      content: '⚡';
+      position: absolute;
+      font-size: 20rem;
+      opacity: 0.05;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .urgence-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .urgence-section p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .urgence-section .big-phone {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      color: white;
+      display: block;
+      margin-bottom: 0.5rem;
+      position: relative;
+      letter-spacing: 2px;
+    }
+
+    .urgence-section .sub-phone {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      position: relative;
+    }
+
+    /* ===== POURQUOI NOUS ===== */
+    #pourquoi {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .pourquoi-img {
+      position: relative;
+    }
+
+    .pourquoi-img-main {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      filter: brightness(0.7) saturate(0.6);
+    }
+
+    .pourquoi-badge {
+      position: absolute;
+      bottom: -1.5rem; right: -1.5rem;
+      background: var(--yellow);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      color: #0a0a0a;
+    }
+
+    .pourquoi-badge .big {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .pourquoi-badge .small {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .garanties {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .garantie-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 1.2rem 1.5rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s;
+    }
+
+    .garantie-item:hover { border-color: var(--yellow); }
+
+    .garantie-icon {
+      width: 36px; height: 36px;
+      background: rgba(245,197,24,0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .garantie-item strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+      color: white;
+    }
+
+    .garantie-item p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+    /* ===== AVIS ===== */
+    #avis {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+    }
+
+    .avis-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .avis-header { margin-bottom: 3rem; }
+
+    .avis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .avis-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: border-color 0.2s;
+    }
+
+    .avis-card:hover { border-color: rgba(245,197,24,0.3); }
+
+    .stars { color: var(--yellow); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+
+    .avis-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .avis-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avis-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(245,197,24,0.15);
+      border: 1px solid rgba(245,197,24,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--yellow);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .avis-author strong { display: block; font-size: 0.88rem; color: white; }
+    .avis-author span { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      padding: 6rem 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h2 { margin-bottom: 1rem; }
+    .contact-info p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 1rem 1.2rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+
+    .contact-item:hover { border-color: var(--yellow); }
+    .contact-item i { color: var(--yellow); width: 16px; text-align: center; }
+    .contact-item strong { color: white; margin-right: 6px; }
+
+    .contact-form {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .contact-form h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.8rem;
+      color: white;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(245,197,24,0.1);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .form-group select option { background: var(--bg3); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--yellow);
+      color: #0a0a0a;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      box-shadow: 0 8px 24px rgba(245,197,24,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(245,197,24,0.35);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .form-success .s-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(245,197,24,0.1);
+      border: 2px solid var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--yellow);
+      margin: 0 auto 1rem;
+    }
+
+    .form-success h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-left .logo-text { font-size: 1.2rem; }
+    .footer-left p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    .footer-credit {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-credit span { color: var(--yellow); font-weight: 600; }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-phone { display: none; }
+      #pourquoi { grid-template-columns: 1fr; gap: 2rem; }
+      #contact { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .burger-btn { display: block; }
+      .navbar { padding: 1rem 1.5rem; }
+      #services, #avis { padding: 4rem 1.5rem; }
+      #pourquoi, #contact { padding: 4rem 1.5rem; }
+      .stats-bar { flex-wrap: wrap; gap: 1.5rem; padding: 2rem 1.5rem; }
+      .stat-item::after { display: none; }
+      .hero-content { padding: 3rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BARRE URGENCE -->
+<div class="urgence-bar">
+  <i class="fa-solid fa-triangle-exclamation"></i>
+  <span>Urgence serrurerie 24h/24 — Intervention en moins de 30 min à Gap</span>
+  <a href="tel:+33600000000"><i class="fa-solid fa-phone"></i> 06 XX XX XX XX</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <div class="logo-icon"><i class="fa-solid fa-key"></i></div>
+    <div class="logo-text">Forcia <span>Serrurerie</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pourquoi">À propos</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact" class="nav-cta"><i class="fa-solid fa-phone"></i> Urgence</a></li>
+  </ul>
+  <button class="burger-btn" id="burgerBtn"><i class="fa-solid fa-bars" id="burgerIcon"></i></button>
+</nav>
+
+<div class="burger-menu" id="burgerMenu">
+  <ul>
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pourquoi">À propos</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact">Contact / Urgence</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Serrurier certifié — Gap 05000</div>
+    <h1>Votre<br>serrurier<br><span>de confiance</span></h1>
+    <p>Ouverture de porte, blindage, dépannage urgent. Intervention rapide à Gap et dans les Hautes-Alpes — disponible 24h/24, 7j/7.</p>
+    <div class="hero-btns">
+      <a href="tel:+33600000000" class="btn-primary">
+        <i class="fa-solid fa-phone"></i> Appeler maintenant
+      </a>
+      <a href="#services" class="btn-secondary">
+        Nos services <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="hero-features">
+      <div class="hero-feature"><i class="fa-solid fa-clock"></i> Intervention 24h/24</div>
+      <div class="hero-feature"><i class="fa-solid fa-location-dot"></i> Gap & alentours</div>
+      <div class="hero-feature"><i class="fa-solid fa-shield-check"></i> Devis gratuit</div>
+      <div class="hero-feature"><i class="fa-solid fa-star"></i> 4.9/5 Google</div>
+    </div>
+  </div>
+
+  <div class="hero-phone">
+    <div class="phone-ring"><i class="fa-solid fa-phone"></i></div>
+    <p>Urgence 24h/24</p>
+    <div class="phone-num">06 XX XX XX</div>
+    <div class="avail">Disponible maintenant</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">30</div><div class="stat-label">Min d'intervention</div></div>
+  <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Ans d'expérience</div></div>
+  <div class="stat-item"><div class="stat-num">2400+</div><div class="stat-label">Interventions</div></div>
+  <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">Note Google</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-tag reveal">Nos prestations</div>
+  <h2 class="section-title reveal">Tous vos besoins<br><span>en serrurerie</span></h2>
+  <p class="section-sub reveal">Du dépannage urgent à l'installation complète, nous intervenons pour les particuliers et professionnels à Gap.</p>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon"><i class="fa-solid fa-door-open"></i></div>
+      <h3>Ouverture de porte</h3>
+      <p>Porte claquée, clé cassée ou perdue — nous intervenons en moins de 30 minutes sans dommage.</p>
+      <div class="service-urgence"><i class="fa-solid fa-bolt"></i> Intervention express</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon"><i class="fa-solid fa-lock"></i></div>
+      <h3>Changement de serrure</h3>
+      <p>Remplacement toutes marques, cylindres haute sécurité, serrures 3 points et multipoints.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Blindage de porte</h3>
+      <p>Installation de portes blindées et renforcées pour protéger votre domicile ou commerce.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+      <h3>Serrurerie pro</h3>
+      <p>Contrôle d'accès, digicodes, sécurisation de locaux commerciaux et industriels.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon"><i class="fa-solid fa-car"></i></div>
+      <h3>Coffre-fort & véhicule</h3>
+      <p>Ouverture et dépannage de coffres-forts, portières et véhicules toutes marques.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon"><i class="fa-solid fa-file-invoice"></i></div>
+      <h3>Devis gratuit</h3>
+      <p>Estimation précise et transparente avant toute intervention. Aucune mauvaise surprise.</p>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCE CTA -->
+<div class="urgence-section">
+  <h2>Bloqué dehors ?</h2>
+  <p>Nous intervenons à Gap et dans les Hautes-Alpes en moins de 30 minutes</p>
+  <a href="tel:+33600000000" style="color:white; text-decoration:none;">
+    <span class="big-phone"><i class="fa-solid fa-phone" style="font-size:0.7em"></i> 06 XX XX XX XX</span>
+    <span class="sub-phone">Disponible 24h/24 — 7j/7 — Jours fériés</span>
+  </a>
+</div>
+
+<!-- POURQUOI NOUS -->
+<section id="pourquoi">
+  <div class="pourquoi-img reveal">
+    <img src="https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg" alt="Serrurier professionnel" class="pourquoi-img-main">
+    <div class="pourquoi-badge">
+      <div class="big">15+</div>
+      <div class="small">ans d'expérience</div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="section-tag">Pourquoi nous choisir</div>
+    <h2 class="section-title">Sérieux,<br><span>réactif, certifié</span></h2>
+    <p style="color:var(--text-muted); font-size:0.95rem; font-weight:300; margin-bottom:0.5rem;">Chez Forcia Serrurerie, nous sommes convaincus qu'une urgence mérite une réponse rapide et honnête. Pas de surfacturation, pas de mauvaise surprise.</p>
+
+    <div class="garanties">
+      <div class="garantie-item">
+        <div class="garantie-icon"><i class="fa-solid fa-clock"></i></div>
+        <div><strong>Intervention en 30 minutes</strong><p>Disponible à toute heure, week-end et jours fériés inclus.</p></div>
+      </div>
+      <div class="garantie-item">
+        <div class="garantie-icon"><i class="fa-solid fa-euro-sign"></i></div>
+        <div><strong>Tarifs transparents</strong><p>Devis gratuit et prix annoncé avant intervention. Jamais de surprise.</p></div>
+      </div>
+      <div class="garantie-item">
+        <div class="garantie-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div><strong>Artisan certifié</strong><p>Qualifications professionnelles, matériel haute qualité, garantie sur les travaux.</p></div>
+      </div>
+      <div class="garantie-item">
+        <div class="garantie-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <div><strong>Ancré à Gap</strong><p>Basé dans les Hautes-Alpes, nous connaissons le secteur et ses habitants.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="avis-inner">
+    <div class="avis-header reveal">
+      <div class="section-tag">Témoignages</div>
+      <h2 class="section-title">Ce que disent<br><span>nos clients</span></h2>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Porte claquée à 23h, arrivée en 20 minutes chrono. Professionnel, efficace, prix annoncé respecté. Je recommande sans hésiter."</p>
+        <div class="avis-author">
+          <div class="avis-avatar">PD</div>
+          <div><strong>Pierre D.</strong><span>Gap — Via Google</span></div>
+        </div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Changement de serrure rapide et soigné. Très bon conseil sur le niveau de sécurité adapté. Travail impeccable, je n'appelle plus qu'eux."</p>
+        <div class="avis-author">
+          <div class="avis-avatar">SM</div>
+          <div><strong>Sophie M.</strong><span>Embrun — Via Google</span></div>
+        </div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Intervention pour mon commerce, devis clair et honnête, pose de blindage parfaite. Sérieux du début à la fin. Merci Forcia !"</p>
+        <div class="avis-author">
+          <div class="avis-avatar">LB</div>
+          <div><strong>Laurent B.</strong><span>Gap — Professionnel</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <div class="section-tag">Nous contacter</div>
+    <h2 class="section-title">Besoin d'une<br><span>intervention ?</span></h2>
+    <p>Pour une urgence, appelez directement. Pour un devis ou une question, remplissez le formulaire.</p>
+    <div class="contact-items">
+      <div class="contact-item"><i class="fa-solid fa-phone"></i><span><strong>Urgence :</strong> 06 XX XX XX XX</span></div>
+      <div class="contact-item"><i class="fa-solid fa-envelope"></i><span><strong>Email :</strong> contact@forcia-serrurerie.fr</span></div>
+      <div class="contact-item"><i class="fa-solid fa-location-dot"></i><span><strong>Zone :</strong> Gap et Hautes-Alpes (05)</span></div>
+      <div class="contact-item"><i class="fa-solid fa-clock"></i><span><strong>Disponibilité :</strong> 24h/24 — 7j/7</span></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="contact-form">
+      <h3>Demande de devis</h3>
+      <form id="contactForm" action="https://formspree.io/f/VOTRE_ID" method="POST" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom *</label>
+            <input type="text" name="prenom" placeholder="Jean" required>
+          </div>
+          <div class="form-group">
+            <label>Nom *</label>
+            <input type="text" name="nom" placeholder="Dupont" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Téléphone *</label>
+          <input type="tel" name="telephone" placeholder="06 XX XX XX XX" required>
+        </div>
+        <div class="form-group">
+          <label>Type d'intervention *</label>
+          <select name="intervention" required>
+            <option value="" disabled selected>Choisissez</option>
+            <option>Ouverture de porte urgente</option>
+            <option>Changement de serrure</option>
+            <option>Blindage de porte</option>
+            <option>Serrurerie professionnelle</option>
+            <option>Coffre-fort / Véhicule</option>
+            <option>Autre / Devis</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Décrivez votre besoin..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande
+        </button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="s-icon"><i class="fa-solid fa-check"></i></div>
+        <h3>Demande envoyée !</h3>
+        <p>Nous vous recontactons dans les plus brefs délais.<br>Pour une urgence, appelez le <strong style="color:var(--yellow)">06 XX XX XX XX</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="logo">
+        <div class="logo-icon" style="width:30px;height:30px;font-size:0.8rem;"><i class="fa-solid fa-key"></i></div>
+        <div class="logo-text" style="font-size:1.1rem;">Forcia <span>Serrurerie</span></div>
+      </div>
+      <p>Serrurier professionnel à Gap — 24h/24</p>
+    </div>
+    <div class="footer-links">
+      <a href="#accueil">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Mentions légales</a>
+    </div>
+    <div class="footer-credit">Site réalisé par <span>DB Studio</span></div>
+  </div>
+</footer>
+
+<script>
+  // Burger
+  const burgerBtn = document.getElementById('burgerBtn');
+  const burgerMenu = document.getElementById('burgerMenu');
+  const burgerIcon = document.getElementById('burgerIcon');
+  burgerBtn.addEventListener('click', () => {
+    const open = burgerMenu.classList.toggle('open');
+    burgerIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  burgerMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burgerMenu.classList.remove('open');
+      burgerIcon.className = 'fa-solid fa-bars';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Form
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Envoi...';
+    btn.disabled = true;
+    try {
+      await fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} });
+    } catch(err) {}
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
